@@ -7,14 +7,14 @@ function Inventory({ userId }) {
     const [quantity, setQuantity] = useState('');
 
     useEffect(() => {
-        axios.get(`your_backend_url/inventory.php?userId=${userId}`)
+        axios.get(`http://47.130.46.103/inventory.php?userId=${userId}`)
             .then(response => setInventory(response.data))
             .catch(error => console.error('Error fetching inventory:', error));
     }, [userId]);
 
     const addItem = async () => {
-         await axios.post('your_backend_url/inventory.php', {userId: userId, itemName : itemName, quantity: quantity});
-         axios.get(`your_backend_url/inventory.php?userId=${userId}`).then(response => setInventory(response.data));
+         await axios.post('http://47.130.46.103/inventory.php', {userId: userId, itemName : itemName, quantity: quantity});
+         axios.get(`http://47.130.46.103/inventory.php?userId=${userId}`).then(response => setInventory(response.data));
     }
 
     return (

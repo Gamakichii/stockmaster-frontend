@@ -11,7 +11,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('your_backend_url/register.php', { username, password });
+            const response = await axios.post('http://47.130.46.103/register.php', { username, password });
             if (response.data.success) {
                 alert('Registration successful!');
                 navigate('/');

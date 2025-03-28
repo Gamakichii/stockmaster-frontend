@@ -11,7 +11,7 @@ function Login({ onLogin }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('your_backend_url/login.php', { username, password });
+            const response = await axios.post('http://47.130.46.103/login.php', { username, password });
             if (response.data.success) {
                 onLogin(response.data.userId);
                 navigate('/home');
